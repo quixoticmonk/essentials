@@ -1,0 +1,32 @@
+remote_state:
+		terraform init -input=false -backend-config=${ENV}.tfbackend
+
+output: remote_state
+		terraform output
+
+plan: remote_state
+		terraform plan -var-file=${ENV}.tfvars
+
+apply: remote_state
+		terraform apply -var-file=${ENV}.tfvars
+
+destroy: remote_state
+		terraform destroy -var-file=${ENV}.tfvars
+
+tf_version: remote_state
+		exec terraform -version
+
+refresh: remote_state
+		terraform refresh -var-file=${ENV}.tfvars
+
+fmt:
+		terraform fmt
+
+force_unlock: remote_state
+		exec terraform force-unlock $(LOCK_ID)
+
+clean:
+		rm -rf .terraform
+
+gen-docs:
+		terraform-docs markdown ./ > README.md
