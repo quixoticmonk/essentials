@@ -1,3 +1,13 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+if [ -r ~/.zshrc ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zshrc; \
+  else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zprofile; fi
+
+
 # Configure terminal
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
@@ -52,3 +62,27 @@ alias gss='git status --short'
 alias gst='git stash'
 alias gcl='git clean -fxfd'
 
+# -----------------------------------
+# Terraform Aliases
+# -----------------------------------
+alias tf='terraform'
+alias tfa='tf apply'
+alias tfd='tf destroy --auto-approve'
+alias tfi='tf init'
+alias tfp='tf plan'
+alias tfy='tf apply --auto-approve'
+
+# -----------------------------------
+# K8s Aliases
+# -----------------------------------
+
+alias k='kubectl'
+alias kgp='k get pods'
+
+# -----------------------------------
+# Get Kubeconfig
+# -----------------------------------
+
+alias aks='aws eks --region us-east-1 update-kubeconfig --name'
+
+export GPG_TTY=$(tty)
