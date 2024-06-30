@@ -85,4 +85,27 @@ alias kgp='k get pods'
 
 alias aks='aws eks --region us-east-1 update-kubeconfig --name'
 
+export GOBIN=~/.local/bin
+export PATH=$GOBIN:$PATH
+
 export GPG_TTY=$(tty)
+
+
+# format all the files touched
+
+function tf_fmt() {
+  directories=($(git status --short | cut -c 4- | cut -d' ' -f1 | sort -u | xargs -I{} dirname {}))
+
+  for directory in "${directories[@]}"
+  do
+    echo "Processing directory: $directory"
+    terraform fmt "$directory"
+  done
+}
+
+
+#################
+# TF DEBUG
+#################
+
+alias tfbug='export TF_LOG=DEBUG && export TF_LOG_PATH="./logs/debug.log" && export TF_LOG_SDK_PROTO_DATA_DIR="./logs/sdk_proto"'
