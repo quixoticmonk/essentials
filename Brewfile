@@ -8,8 +8,6 @@
 
 # Core
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
 # Public
 tap "aws/tap"
@@ -22,7 +20,6 @@ tap "aws/tap"
 # NOTE: Comment out the one you may have already installed manually
 # Casks
 cask "docker"
-cask "visual-studio-code"
 
 # ------------------------------------------------------------------------------
 # Packages/Formula
@@ -58,7 +55,6 @@ brew "goenv"
 brew "jenv"
 brew "nodenv"
 brew "pyenv"
-brew "rbenv"
 brew "tfenv"
 
 # Completion
