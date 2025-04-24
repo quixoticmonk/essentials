@@ -45,6 +45,10 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # starship on launch
 eval "$(starship init zsh)"
 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # -----------------------------------
 # Git Aliases
 # -----------------------------------
@@ -109,3 +113,14 @@ function tf_fmt() {
 #################
 
 alias tfbug='export TF_LOG=DEBUG && export TF_LOG_PATH="./logs/debug.log" && export TF_LOG_SDK_PROTO_DATA_DIR="./logs/sdk_proto"'
+
+alias tfrd='fq -d msgpack torepr'
+
+#################
+# Python
+#################
+
+alias penv='python3 -m venv .venv && source .venv/bin/activate'
+function lolbanner() {
+  figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf $@ | lolcat
+}
