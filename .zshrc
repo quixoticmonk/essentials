@@ -116,6 +116,8 @@ alias tfbug='export TF_LOG=DEBUG && export TF_LOG_PATH="./logs/debug.log" && exp
 
 alias tfrd='fq -d msgpack torepr'
 
+alias tf-clean='rm -rf .terraform/ .terraform.lock.hcl terraform.tfstate terraform.tfstate.backup'
+
 #################
 # Python
 #################
