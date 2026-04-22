@@ -65,6 +65,12 @@ alias gs='git status'
 alias gss='git status --short'
 alias gst='git stash'
 alias gcl='git clean -fxfd'
+alias git-churn='git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20'
+alias git-who='git shortlog -sn --no-merges'
+alias git-who-recent='git shortlog -sn --no-merges --since="6 months ago"'
+alias git-bugs='git log -i -E --grep="fix|bug|broken" --name-only --format="" | sort | uniq -c | sort -nr | head -20'
+alias git-pulse='git log --format="%ad" --date=format:"%Y-%m" | sort | uniq -c'
+alias git-fires='git log --oneline --since="1 year ago" | grep -iE "revert|hotfix|emergency|rollback"'
 
 # -----------------------------------
 # Terraform Aliases
